@@ -15,8 +15,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = ViewController()
+        window?.rootViewController = buildMainModule()
         window?.makeKeyAndVisible()
+    }
+    
+    private func buildMainModule() -> UIViewController {
+        let presenter = MainPresenter()
+        let view = MainViewController(presenter: presenter)
+        presenter.injectView(with: view)
+        
+        return view
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
