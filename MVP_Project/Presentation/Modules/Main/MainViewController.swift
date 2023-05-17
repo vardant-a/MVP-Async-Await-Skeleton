@@ -8,6 +8,7 @@
 import UIKit
 
 protocol MainViewProtocol: AnyObject {
+    func showMessage(text: String)
 }
 
 final class MainViewController: UIViewController {
@@ -36,4 +37,7 @@ final class MainViewController: UIViewController {
     // MARK: - MainViewController + MainViewProtocol
 
 extension MainViewController: MainViewProtocol {
+    func showMessage(text: String) {
+        print(text)
+    }
 }

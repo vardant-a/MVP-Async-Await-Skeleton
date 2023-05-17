@@ -9,6 +9,8 @@ import UIKit
 
 protocol MainViewPresenterProtocol: AnyObject {
     func injectView(with view: MainViewProtocol)
+    
+    func showMessage()
 }
 
 final class MainPresenter: MainViewPresenterProtocol {
@@ -19,5 +21,9 @@ final class MainPresenter: MainViewPresenterProtocol {
     
     func injectView(with view: MainViewProtocol) {
         if self.view == nil { self.view = view }
+    }
+    
+    func showMessage() {
+        view?.showMessage(text: <#T##String#>)
     }
 }
