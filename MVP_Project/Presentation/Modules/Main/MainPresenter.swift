@@ -24,6 +24,6 @@ final class MainPresenter: MainViewPresenterProtocol {
     }
     
     func showMessage() {
-        view?.showMessage(text: <#T##String#>)
+        view?.showMessage(text: "1")
     }
 }

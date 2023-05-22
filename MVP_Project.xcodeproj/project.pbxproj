@@ -13,6 +13,7 @@
 		0EDFF5E92A1407A500CC9537 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EDFF5E82A1407A500CC9537 /* Assets.xcassets */; };
 		0EDFF5EC2A1407A500CC9537 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EDFF5EA2A1407A500CC9537 /* LaunchScreen.storyboard */; };
 		0EDFF5FB2A140A7400CC9537 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDFF5FA2A140A7400CC9537 /* MainPresenter.swift */; };
+		0EE7FD212A1C0ED000ECA517 /* SkeletonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE7FD202A1C0ED000ECA517 /* SkeletonLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		0EDFF5EB2A1407A500CC9537 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EDFF5ED2A1407A500CC9537 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EDFF5FA2A140A7400CC9537 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		0EE7FD202A1C0ED000ECA517 /* SkeletonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SkeletonLoader.swift; path = ../../../SkeletonLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				0EDFF5F32A1408B200CC9537 /* Application */,
 				0EDFF5F52A1408D700CC9537 /* Presentation */,
 				0EDFF5F42A1408CE00CC9537 /* Resources */,
+				0EE7FD202A1C0ED000ECA517 /* SkeletonLoader.swift */,
 			);
 			path = MVP_Project;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EDFF5E42A1407A400CC9537 /* MainViewController.swift in Sources */,
+				0EE7FD212A1C0ED000ECA517 /* SkeletonLoader.swift in Sources */,
 				0EDFF5E02A1407A400CC9537 /* AppDelegate.swift in Sources */,
 				0EDFF5E22A1407A400CC9537 /* SceneDelegate.swift in Sources */,
 				0EDFF5FB2A140A7400CC9537 /* MainPresenter.swift in Sources */,
