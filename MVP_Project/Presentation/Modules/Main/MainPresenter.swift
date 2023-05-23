@@ -7,23 +7,45 @@
 
 import UIKit
 
+import UIKit
+
 protocol MainViewPresenterProtocol: AnyObject {
-    func injectView(with view: MainViewProtocol)
+    init(networkManager: NetworkService)
+    func injectView(_ view: MainViewProtocol)
     
-    func showMessage()
+    func getComics()
 }
 
 final class MainPresenter: MainViewPresenterProtocol {
     
+    // MARK: - Private Properties
+    
+    private let networkManager: NetworkService
+    
     private weak var view: MainViewProtocol?
     
-    init() {}
+    // MARK: - Init
     
-    func injectView(with view: MainViewProtocol) {
-        if self.view == nil { self.view = view }
+    init(networkManager: NetworkService) {
+        self.networkManager = networkManager
     }
     
-    func showMessage() {
-        view?.showMessage(text: "1")
+    // MARK: - Public Methods
+    
+    func injectView(_ view: MainViewProtocol) {
+        if self.view == nil { self.view = view}
+    }
+    
+    func getComics() {
+        Task {
+            do {
+                guard let comicData: ComicDataWrapper = try await networkManager
+                    .fetch() else { return }
+                guard let comics = comicData.data?.results else { return }
+                view?.showContent(models: comics)
+            } catch {
+                print(error)
+            }
+        }
     }
 }

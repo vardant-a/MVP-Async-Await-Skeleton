@@ -8,12 +8,30 @@
 import UIKit
 
 protocol MainViewProtocol: AnyObject {
-    func showMessage(text: String)
+    func showContent(models: [Comic])
 }
 
-final class MainViewController: UIViewController {
+final class MainViewController: UIViewController{
     
-    private let presenter: MainViewPresenterProtocol
+    // MARK: - Private Properties
+    
+    private var presenter: MainViewPresenterProtocol
+    
+    private var models: [Comic] = []
+    
+    // MARK: - Private lazy Properties
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.backgroundColor = .lightGray
+        tableView.rowHeight = 75
+        tableView.register(ComicTableViewCell.self,
+                           forCellReuseIdentifier: ComicTableViewCell.cellID)
+        
+        return tableView
+    }()
     
     // MARK: - Init
     
@@ -26,18 +44,91 @@ final class MainViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Life Cycles Methods
-
+    // MARK: - Life Cycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        view.backgroundColor = .white
+        view.addSubviews(tableView) {[weak self] in
+            self?.setupLayout()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavController()
+    }
+    
+    // MARK: - Layout
+    
+    private func setupLayout() {
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(
+                equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(
+                equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
 }
 
-    // MARK: - MainViewController + MainViewProtocol
+    // MARK: - UITableViewDataSource
+
+extension MainViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        models.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = models[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: ComicTableViewCell.cellID,
+            for: indexPath) as? ComicTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.configureCell(item)
+        
+        return cell
+    }
+}
+
+    // MARK: - UITableViewDelegate
+
+extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let comic = models[indexPath.row]
+        
+        print(comic)
+    }
+}
+
+    // MARK: - Settings UINavigationController
+
+private extension MainViewController {
+    func setupNavController() {
+        let fetchButton = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(tuppedNavAddButton))
+        navigationItem.rightBarButtonItem = fetchButton
+    }
+    
+    @objc func tuppedNavAddButton() {
+        presenter.getComics()
+    }
+}
+
+    // MARK: - MainViewController + MainViewPresenter
 
 extension MainViewController: MainViewProtocol {
-    func showMessage(text: String) {
-        print(text)
+    func showContent(models: [Comic]) {
+        self.models = models
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
