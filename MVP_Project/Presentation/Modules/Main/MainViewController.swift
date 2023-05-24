@@ -17,7 +17,13 @@ final class MainViewController: UIViewController{
     
     private var presenter: MainViewPresenterProtocol
     
-    private var models: [Comic] = []
+    private var models: [Comic]? {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     // MARK: - Private lazy Properties
     
@@ -48,10 +54,9 @@ final class MainViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        view.addSubviews(tableView) {[weak self] in
-            self?.setupLayout()
-        }
+        view.backgroundColor = .darkGray
+        view.addSubviews(tableView)
+        setupLayout()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,11 +84,11 @@ final class MainViewController: UIViewController{
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        models.count
+        models?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = models[indexPath.row]
+        let item = models?[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: ComicTableViewCell.cellID,
             for: indexPath) as? ComicTableViewCell else {
@@ -100,9 +105,9 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let comic = models[indexPath.row]
+        let comic = models?[indexPath.row]
         
-        print(comic)
+        print(comic?.title ?? "nil")
     }
 }
 
@@ -127,8 +132,5 @@ private extension MainViewController {
 extension MainViewController: MainViewProtocol {
     func showContent(models: [Comic]) {
         self.models = models
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
     }
 }

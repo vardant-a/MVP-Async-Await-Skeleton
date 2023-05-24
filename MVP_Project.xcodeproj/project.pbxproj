@@ -20,6 +20,7 @@
 		0EE278C72A1D4BAC003E9478 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE278C62A1D4BAC003E9478 /* NetworkManager.swift */; };
 		0EE278C92A1D4BBE003E9478 /* CryptoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE278C82A1D4BBE003E9478 /* CryptoManager.swift */; };
 		0EE278CD2A1D4D98003E9478 /* UIVIew+EX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE278CC2A1D4D98003E9478 /* UIVIew+EX.swift */; };
+		0EE278CF2A1D51CB003E9478 /* ComicsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE278CE2A1D51CB003E9478 /* ComicsDataSource.swift */; };
 		0EE7FD212A1C0ED000ECA517 /* SkeletonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE7FD202A1C0ED000ECA517 /* SkeletonLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		0EE278C62A1D4BAC003E9478 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0EE278C82A1D4BBE003E9478 /* CryptoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoManager.swift; sourceTree = "<group>"; };
 		0EE278CC2A1D4D98003E9478 /* UIVIew+EX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+EX.swift"; sourceTree = "<group>"; };
+		0EE278CE2A1D51CB003E9478 /* ComicsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsDataSource.swift; sourceTree = "<group>"; };
 		0EE7FD202A1C0ED000ECA517 /* SkeletonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SkeletonLoader.swift; path = ../../../SkeletonLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 			children = (
 				0EDFF5E32A1407A400CC9537 /* MainViewController.swift */,
 				0EDFF5FA2A140A7400CC9537 /* MainPresenter.swift */,
+				0EE278CE2A1D51CB003E9478 /* ComicsDataSource.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				0EE7FD212A1C0ED000ECA517 /* SkeletonLoader.swift in Sources */,
 				0EE278CD2A1D4D98003E9478 /* UIVIew+EX.swift in Sources */,
 				0EDFF5E02A1407A400CC9537 /* AppDelegate.swift in Sources */,
+				0EE278CF2A1D51CB003E9478 /* ComicsDataSource.swift in Sources */,
 				0EE278C72A1D4BAC003E9478 /* NetworkManager.swift in Sources */,
 				0EDFF5E22A1407A400CC9537 /* SceneDelegate.swift in Sources */,
 				0EE278C92A1D4BBE003E9478 /* CryptoManager.swift in Sources */,
