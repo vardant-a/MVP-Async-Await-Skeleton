@@ -15,14 +15,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = buildMainModule()
+        window?.rootViewController = UINavigationController(rootViewController: buildMainModule())
         window?.makeKeyAndVisible()
     }
     
     private func buildMainModule() -> UIViewController {
-        let presenter = MainPresenter()
+        let presenter = MainPresenter(networkManager: NetworkManager())
         let view = MainViewController(presenter: presenter)
-        presenter.injectView(with: view)
+        presenter.injectView(view)
         
         return view
     }
