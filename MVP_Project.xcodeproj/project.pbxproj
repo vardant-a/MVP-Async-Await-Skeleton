@@ -13,7 +13,7 @@
 		0EDFF5E92A1407A500CC9537 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EDFF5E82A1407A500CC9537 /* Assets.xcassets */; };
 		0EDFF5EC2A1407A500CC9537 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EDFF5EA2A1407A500CC9537 /* LaunchScreen.storyboard */; };
 		0EDFF5FB2A140A7400CC9537 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDFF5FA2A140A7400CC9537 /* MainPresenter.swift */; };
-		0EE278BB2A1D4ADE003E9478 /* ComicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE278BA2A1D4ADE003E9478 /* ComicTableViewCell.swift */; };
+		0EE278BB2A1D4ADE003E9478 /* ComicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE278BA2A1D4ADE003E9478 /* ComicCell.swift */; };
 		0EE278BF2A1D4B27003E9478 /* ComicDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE278BE2A1D4B27003E9478 /* ComicDataWrapper.swift */; };
 		0EE278C32A1D4B6B003E9478 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE278C22A1D4B6B003E9478 /* API.swift */; };
 		0EE278C52A1D4B88003E9478 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE278C42A1D4B88003E9478 /* Keys.swift */; };
@@ -21,7 +21,7 @@
 		0EE278C92A1D4BBE003E9478 /* CryptoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE278C82A1D4BBE003E9478 /* CryptoManager.swift */; };
 		0EE278CD2A1D4D98003E9478 /* UIVIew+EX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE278CC2A1D4D98003E9478 /* UIVIew+EX.swift */; };
 		0EE278CF2A1D51CB003E9478 /* ComicsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE278CE2A1D51CB003E9478 /* ComicsDataSource.swift */; };
-		0EE7FD212A1C0ED000ECA517 /* SkeletonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE7FD202A1C0ED000ECA517 /* SkeletonLoader.swift */; };
+		0EF26AC52A1FFB6F0098DDE0 /* SkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF26AC42A1FFB6F0098DDE0 /* SkeletonCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		0EDFF5EB2A1407A500CC9537 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EDFF5ED2A1407A500CC9537 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EDFF5FA2A140A7400CC9537 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
-		0EE278BA2A1D4ADE003E9478 /* ComicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicTableViewCell.swift; sourceTree = "<group>"; };
+		0EE278BA2A1D4ADE003E9478 /* ComicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCell.swift; sourceTree = "<group>"; };
 		0EE278BE2A1D4B27003E9478 /* ComicDataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDataWrapper.swift; sourceTree = "<group>"; };
 		0EE278C22A1D4B6B003E9478 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		0EE278C42A1D4B88003E9478 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 		0EE278C82A1D4BBE003E9478 /* CryptoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoManager.swift; sourceTree = "<group>"; };
 		0EE278CC2A1D4D98003E9478 /* UIVIew+EX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+EX.swift"; sourceTree = "<group>"; };
 		0EE278CE2A1D51CB003E9478 /* ComicsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsDataSource.swift; sourceTree = "<group>"; };
-		0EE7FD202A1C0ED000ECA517 /* SkeletonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SkeletonLoader.swift; path = ../../../SkeletonLoader.swift; sourceTree = "<group>"; };
+		0EF26AC42A1FFB6F0098DDE0 /* SkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +78,6 @@
 				0EDFF5F32A1408B200CC9537 /* Application */,
 				0EDFF5F52A1408D700CC9537 /* Presentation */,
 				0EDFF5F42A1408CE00CC9537 /* Resources */,
-				0EE7FD202A1C0ED000ECA517 /* SkeletonLoader.swift */,
 			);
 			path = MVP_Project;
 			sourceTree = "<group>";
@@ -133,7 +132,8 @@
 		0EE278B92A1D4AC8003E9478 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				0EE278BA2A1D4ADE003E9478 /* ComicTableViewCell.swift */,
+				0EE278BA2A1D4ADE003E9478 /* ComicCell.swift */,
+				0EF26AC42A1FFB6F0098DDE0 /* SkeletonCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -244,14 +244,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EE278BB2A1D4ADE003E9478 /* ComicTableViewCell.swift in Sources */,
+				0EE278BB2A1D4ADE003E9478 /* ComicCell.swift in Sources */,
 				0EDFF5E42A1407A400CC9537 /* MainViewController.swift in Sources */,
-				0EE7FD212A1C0ED000ECA517 /* SkeletonLoader.swift in Sources */,
 				0EE278CD2A1D4D98003E9478 /* UIVIew+EX.swift in Sources */,
 				0EDFF5E02A1407A400CC9537 /* AppDelegate.swift in Sources */,
 				0EE278CF2A1D51CB003E9478 /* ComicsDataSource.swift in Sources */,
 				0EE278C72A1D4BAC003E9478 /* NetworkManager.swift in Sources */,
 				0EDFF5E22A1407A400CC9537 /* SceneDelegate.swift in Sources */,
+				0EF26AC52A1FFB6F0098DDE0 /* SkeletonCell.swift in Sources */,
 				0EE278C92A1D4BBE003E9478 /* CryptoManager.swift in Sources */,
 				0EDFF5FB2A140A7400CC9537 /* MainPresenter.swift in Sources */,
 				0EE278C32A1D4B6B003E9478 /* API.swift in Sources */,

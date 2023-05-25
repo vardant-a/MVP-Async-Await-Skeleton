@@ -7,13 +7,11 @@
 
 import UIKit
 
-import UIKit
-
 protocol MainViewPresenterProtocol: AnyObject {
     init(networkManager: NetworkService)
     func injectView(_ view: MainViewProtocol)
     
-    func getComics()
+    func getContent(_ newData: Bool)
 }
 
 final class MainPresenter: MainViewPresenterProtocol {
@@ -36,15 +34,20 @@ final class MainPresenter: MainViewPresenterProtocol {
         if self.view == nil { self.view = view}
     }
     
-    func getComics() {
+    func getContent(_ newData: Bool) {
+        view?.changeStatusLoading(true)
         Task {
             do {
                 guard let comicData: ComicDataWrapper = try await networkManager
                     .fetch() else { return }
                 guard let comics = comicData.data?.results else { return }
-                view?.showContent(models: comics)
+                if newData {
+                    view?.showContent(models: comics)
+                } else {
+                    view?.refreshContent(newModels: comics)
+                }
             } catch {
-                print(error)
+                view?.showAlert(error.localizedDescription)
             }
         }
     }

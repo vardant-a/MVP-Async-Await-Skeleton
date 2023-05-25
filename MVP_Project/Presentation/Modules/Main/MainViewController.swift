@@ -8,22 +8,26 @@
 import UIKit
 
 protocol MainViewProtocol: AnyObject {
+    func changeStatusLoading(_ status: Bool)
+    func showAlert(_ message: String)
+    
     func showContent(models: [Comic])
+    func refreshContent(newModels: [Comic])
 }
 
-final class MainViewController: UIViewController{
+final class MainViewController: UIViewController {
+    
+    // MARK: - Public Properties
+    
+    private var loading = true
     
     // MARK: - Private Properties
     
     private var presenter: MainViewPresenterProtocol
     
-    private var models: [Comic]? {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
+    private var models: [Comic] = []
+    
+    private let activityIndicator = UIActivityIndicatorView(style: .medium)
     
     // MARK: - Private lazy Properties
     
@@ -31,10 +35,14 @@ final class MainViewController: UIViewController{
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.backgroundColor = .lightGray
         tableView.rowHeight = 75
-        tableView.register(ComicTableViewCell.self,
-                           forCellReuseIdentifier: ComicTableViewCell.cellID)
+        tableView.backgroundColor = .clear
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(self.refreshTableView), for: .valueChanged)
+        tableView.register(SkeletonCell.self,
+                           forCellReuseIdentifier: SkeletonCell.cellID)
+        tableView.register(ComicCell.self,
+                           forCellReuseIdentifier: ComicCell.cellID)
         
         return tableView
     }()
@@ -54,7 +62,7 @@ final class MainViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .darkGray
+        view.backgroundColor = .lightGray
         view.addSubviews(tableView)
         setupLayout()
     }
@@ -84,31 +92,53 @@ final class MainViewController: UIViewController{
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        models?.count ?? 0
+        if loading {
+            return 10
+        } else {
+            return models.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = models?[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: ComicTableViewCell.cellID,
-            for: indexPath) as? ComicTableViewCell else {
-            return UITableViewCell()
+        if loading {
+            guard let skeletonCell = tableView.dequeueReusableCell(
+                withIdentifier: SkeletonCell.cellID,
+                for: indexPath) as? SkeletonCell else {
+                return UITableViewCell()
+            }
+            
+            return skeletonCell
+        } else {
+            let item = models[indexPath.row]
+            guard let contentCell = tableView.dequeueReusableCell(
+                withIdentifier: ComicCell.cellID,
+                for: indexPath) as? ComicCell else {
+                return UITableViewCell()
+            }
+            
+            contentCell.configureCell(item)
+            
+            return contentCell
         }
-        
-        cell.configureCell(item)
-        
-        return cell
     }
 }
 
     // MARK: - UITableViewDelegate
 
-extension MainViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let comic = models?[indexPath.row]
-        
-        print(comic?.title ?? "nil")
-    }
+extension MainViewController: UITableViewDelegate, UIScrollViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+            let offset = scrollView.contentOffset
+            let bounds = scrollView.bounds
+            let size = scrollView.contentSize
+            let inset = scrollView.contentInset
+            let sizeY = offset.y + bounds.size.height - inset.bottom
+            let height = size.height
+
+            let reloadDistance: CGFloat = 20
+            if sizeY > height + reloadDistance {
+                presenter.getContent(true)
+            }
+        }
 }
 
     // MARK: - Settings UINavigationController
@@ -123,14 +153,58 @@ private extension MainViewController {
     }
     
     @objc func tuppedNavAddButton() {
-        presenter.getComics()
+        presenter.getContent(true)
+    }
+    
+    @objc func refreshTableView() {
+        tableView.refreshControl?.beginRefreshing()
+        presenter.getContent(false)
     }
 }
 
     // MARK: - MainViewController + MainViewPresenter
 
 extension MainViewController: MainViewProtocol {
+    func showAlert(_ message: String) {
+        let alertController = UIAlertController(
+            title: nil, message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Repeat loading", style: .default) { [weak self] _ in
+            self?.presenter.getContent(true)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true)
+        }
+    }
+    
     func showContent(models: [Comic]) {
-        self.models = models
+        loading = false
+        if models.isEmpty {
+            self.models = models
+        } else {
+            self.models.append(contentsOf: models)
+        }
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func refreshContent(newModels: [Comic]) {
+        self.models = newModels
+        loading = false
+        DispatchQueue.main.async {
+            self.tableView.refreshControl?.endRefreshing()
+            self.tableView.reloadData()
+        }
+    }
+    
+    func changeStatusLoading(_ status: Bool) {
+        loading = status
     }
 }

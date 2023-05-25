@@ -1,5 +1,5 @@
 //
-//  ComicTableViewCell.swift
+//  ComicCell.swift
 //  MVP_Project
 //
 //  Created by Aleksei on 23.05.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ComicTableViewCell: UITableViewCell {
+final class ComicCell: UITableViewCell {
     
     // MARK: - Public Properties
     
@@ -21,7 +21,6 @@ final class ComicTableViewCell: UITableViewCell {
             DispatchQueue.main.async {
                 self.titleLabel.text = model.title
                 self.comicIdLabel.text = String(describing: model.id ?? 1)
-                print("1")
             }
         }
     }
@@ -48,7 +47,7 @@ final class ComicTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .lightGray
+        contentView.backgroundColor = .white
         contentView.addSubviews(titleLabel, comicIdLabel)
         setupLayout()
     }
