@@ -22,7 +22,7 @@ final class ComicTableViewCell: UITableViewCell {
                 self.titleLabel.text = model.title
                 self.comicIdLabel.text = String(describing: model.id ?? 1)
             }
-        }1
+        }
     }
     
     private var titleLabel: UILabel = {
