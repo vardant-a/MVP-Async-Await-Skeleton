@@ -21,6 +21,7 @@ final class ComicTableViewCell: UITableViewCell {
             DispatchQueue.main.async {
                 self.titleLabel.text = model.title
                 self.comicIdLabel.text = String(describing: model.id ?? 1)
+                print("1")
             }
         }
     }
