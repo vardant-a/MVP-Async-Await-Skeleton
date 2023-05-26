@@ -159,10 +159,8 @@ private extension MainViewController {
     }
     
     @objc func refreshTableView() {
-        if !loading {
-            tableView.refreshControl?.beginRefreshing()
-            presenter.getContent(false)
-        }
+        tableView.refreshControl?.beginRefreshing()
+        presenter.getContent(false)
     }
 }
 
