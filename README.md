@@ -7,12 +7,18 @@ The simple MVP project (utilizing SOLID principles) is based on using UITableVie
 
 A standard UIKit component for displaying data with pagination (loading additional content while scrolling) and pull-to-refresh functionality added.
 
+![full](https://github.com/vardant-a/MVP-Async-Await-Skeleton/assets/108525911/2d824379-8b2b-4a66-9740-007a2f72129f)
+
 ##
 ### UITableViewCell
 
 Custom cells have been implemented:
-- ComicCell - a cell for displaying content retrieved from the network. In the scope of the test project, it utilized 2 UILabels, with one cell responsible for content display.
 - SkeletonCell - a placeholder cell shown when the user has not yet received data from the network.
+- ComicCell - a cell for displaying content retrieved from the network. In the scope of the test project, it utilized 2 UILabels, with one cell responsible for content display.
+
+<img width="199" alt="SkeletonCell" src="https://github.com/vardant-a/MVP-Async-Await-Skeleton/assets/108525911/4ee75677-d308-44a8-9685-4e0534e802f7">
+
+<img width="199" alt="ComicCell" src="https://github.com/vardant-a/MVP-Async-Await-Skeleton/assets/108525911/d1f9da9e-d48a-479b-bcb5-65e0b00332a8">
 
 ## 
 ### Skeleton
