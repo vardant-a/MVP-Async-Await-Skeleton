@@ -127,18 +127,20 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: UITableViewDelegate, UIScrollViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !loading {
             let offset = scrollView.contentOffset
             let bounds = scrollView.bounds
             let size = scrollView.contentSize
             let inset = scrollView.contentInset
             let sizeY = offset.y + bounds.size.height - inset.bottom
             let height = size.height
-
+            
             let reloadDistance: CGFloat = 20
             if sizeY > height + reloadDistance {
                 presenter.getContent(true)
             }
         }
+    }
 }
 
     // MARK: - Settings UINavigationController
@@ -157,8 +159,10 @@ private extension MainViewController {
     }
     
     @objc func refreshTableView() {
-        tableView.refreshControl?.beginRefreshing()
-        presenter.getContent(false)
+        if !loading {
+            tableView.refreshControl?.beginRefreshing()
+            presenter.getContent(false)
+        }
     }
 }
 

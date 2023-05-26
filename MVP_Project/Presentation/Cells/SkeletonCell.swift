@@ -17,15 +17,13 @@ final class SkeletonCell: UITableViewCell {
     
     private let titleView: UIView = {
         let view = UIView()
-        view.backgroundColor = .orange
-        view.layer.cornerRadius = 3
+        view.layer.cornerRadius = 10
         
         return view
     }()
     
     private let comicIdView: UIView = {
         let view = UIView()
-        view.backgroundColor = .orange
         view.layer.cornerRadius = 3
         
         return view
