@@ -18,7 +18,7 @@ extension UIView {
     func addGradientLayer() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.bounds
-        gradientLayer.cornerRadius = self.bounds.height / 3
+        gradientLayer.cornerRadius = layer.cornerRadius
         
         // Определите цвета градиента
         let startColor = UIColor.lightGray.cgColor
