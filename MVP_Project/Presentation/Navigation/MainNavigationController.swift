@@ -37,10 +37,10 @@ final class MainNavigationController: UINavigationController {
     
     private func setupStyleNavBar() {
         let navBarAppearance = UINavigationBarAppearance()
-        navBarAppearance.backgroundColor = .lightGray
-        navBarAppearance.shadowColor = .clear
-        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.black]
-        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
+        navBarAppearance.backgroundColor = .white
+        navBarAppearance.shadowColor = .darkGray
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemBlue]
 
         UINavigationBar.appearance().tintColor = .systemBlue
         UINavigationBar.appearance().prefersLargeTitles = true

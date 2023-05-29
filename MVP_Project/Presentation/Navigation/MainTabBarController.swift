@@ -58,8 +58,7 @@ final class MainTabBarController: UITabBarController {
 
 private extension MainTabBarController {
     func createTabBarItem(_ viewController: UIViewController, title: String,
-                          image: UIImage?,
-                          selectedImage: UIImage?) -> UINavigationController {
+        image: UIImage?, selectedImage: UIImage?) -> UINavigationController {
         guard let image = image, let selectedImage = selectedImage else {
             return UINavigationController()
         }
@@ -101,10 +100,10 @@ private extension MainTabBarController {
     func setupStyleTabBar() {
         let tabBarAppearance = UITabBar.appearance()
         
-        tabBarAppearance.backgroundColor = .lightGray
-        tabBarAppearance.unselectedItemTintColor = .darkGray
+        tabBarAppearance.backgroundColor = .white
+        tabBarAppearance.unselectedItemTintColor = .lightGray
         tabBarAppearance.tintColor = .systemBlue
-        tabBarAppearance.barTintColor = .lightGray
+//        tabBarAppearance.barTintColor = .lightGray
     }
 }
 
