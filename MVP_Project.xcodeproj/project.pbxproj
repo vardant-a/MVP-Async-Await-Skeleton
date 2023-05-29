@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E7FC2B72A253D5B00408588 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7FC2B62A253D5B00408588 /* MainNavigationController.swift */; };
+		0E7FC2B92A253D9200408588 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7FC2B82A253D9200408588 /* MainTabBarController.swift */; };
+		0E7FC2BC2A253DD300408588 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7FC2BB2A253DD300408588 /* SettingsViewController.swift */; };
+		0E7FC2BE2A253DE300408588 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7FC2BD2A253DE300408588 /* SettingsPresenter.swift */; };
+		0E7FC2C02A253E2100408588 /* SettingsCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7FC2BF2A253E2100408588 /* SettingsCellProtocol.swift */; };
+		0E7FC2C22A253E3000408588 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7FC2C12A253E3000408588 /* CustomCell.swift */; };
 		0EDFF5E02A1407A400CC9537 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDFF5DF2A1407A400CC9537 /* AppDelegate.swift */; };
 		0EDFF5E22A1407A400CC9537 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDFF5E12A1407A400CC9537 /* SceneDelegate.swift */; };
 		0EDFF5E42A1407A400CC9537 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDFF5E32A1407A400CC9537 /* MainViewController.swift */; };
@@ -25,6 +31,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E7FC2B62A253D5B00408588 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		0E7FC2B82A253D9200408588 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		0E7FC2BB2A253DD300408588 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0E7FC2BD2A253DE300408588 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		0E7FC2BF2A253E2100408588 /* SettingsCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellProtocol.swift; sourceTree = "<group>"; };
+		0E7FC2C12A253E3000408588 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		0EDFF5DC2A1407A400CC9537 /* MVP_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVP_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDFF5DF2A1407A400CC9537 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EDFF5E12A1407A400CC9537 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +67,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E7FC2B52A253D3F00408588 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				0E7FC2B62A253D5B00408588 /* MainNavigationController.swift */,
+				0E7FC2B82A253D9200408588 /* MainTabBarController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		0E7FC2BA2A253DC600408588 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0E7FC2BB2A253DD300408588 /* SettingsViewController.swift */,
+				0E7FC2BD2A253DE300408588 /* SettingsPresenter.swift */,
+				0E7FC2BF2A253E2100408588 /* SettingsCellProtocol.swift */,
+				0E7FC2C12A253E3000408588 /* CustomCell.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		0E7FC2C32A253E5900408588 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				0EE278BC2A1D4B02003E9478 /* Networking */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		0E7FC2C42A253E7B00408588 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				0EE278CC2A1D4D98003E9478 /* UIVIew+EX.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 		0EDFF5D32A1407A400CC9537 = {
 			isa = PBXGroup;
 			children = (
@@ -74,8 +122,8 @@
 		0EDFF5DE2A1407A400CC9537 /* MVP_Project */ = {
 			isa = PBXGroup;
 			children = (
-				0EE278BC2A1D4B02003E9478 /* Networking */,
 				0EDFF5F32A1408B200CC9537 /* Application */,
+				0E7FC2C32A253E5900408588 /* Features */,
 				0EDFF5F52A1408D700CC9537 /* Presentation */,
 				0EDFF5F42A1408CE00CC9537 /* Resources */,
 			);
@@ -96,8 +144,8 @@
 		0EDFF5F42A1408CE00CC9537 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0E7FC2C42A253E7B00408588 /* Extentions */,
 				0EDFF5E82A1407A500CC9537 /* Assets.xcassets */,
-				0EE278CC2A1D4D98003E9478 /* UIVIew+EX.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -105,8 +153,9 @@
 		0EDFF5F52A1408D700CC9537 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				0EE278B92A1D4AC8003E9478 /* Cells */,
+				0E7FC2B52A253D3F00408588 /* Navigation */,
 				0EDFF5F62A1408E300CC9537 /* Modules */,
+				0EE278B92A1D4AC8003E9478 /* Cells */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -114,6 +163,7 @@
 		0EDFF5F62A1408E300CC9537 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0E7FC2BA2A253DC600408588 /* Settings */,
 				0EDFF5F72A1408EA00CC9537 /* Main */,
 			);
 			path = Modules;
@@ -246,14 +296,20 @@
 			files = (
 				0EE278BB2A1D4ADE003E9478 /* ComicCell.swift in Sources */,
 				0EDFF5E42A1407A400CC9537 /* MainViewController.swift in Sources */,
+				0E7FC2B92A253D9200408588 /* MainTabBarController.swift in Sources */,
+				0E7FC2BE2A253DE300408588 /* SettingsPresenter.swift in Sources */,
 				0EE278CD2A1D4D98003E9478 /* UIVIew+EX.swift in Sources */,
 				0EDFF5E02A1407A400CC9537 /* AppDelegate.swift in Sources */,
+				0E7FC2B72A253D5B00408588 /* MainNavigationController.swift in Sources */,
 				0EE278CF2A1D51CB003E9478 /* ComicsDataSource.swift in Sources */,
+				0E7FC2C22A253E3000408588 /* CustomCell.swift in Sources */,
+				0E7FC2BC2A253DD300408588 /* SettingsViewController.swift in Sources */,
 				0EE278C72A1D4BAC003E9478 /* NetworkManager.swift in Sources */,
 				0EDFF5E22A1407A400CC9537 /* SceneDelegate.swift in Sources */,
 				0EF26AC52A1FFB6F0098DDE0 /* SkeletonCell.swift in Sources */,
 				0EE278C92A1D4BBE003E9478 /* CryptoManager.swift in Sources */,
 				0EDFF5FB2A140A7400CC9537 /* MainPresenter.swift in Sources */,
+				0E7FC2C02A253E2100408588 /* SettingsCellProtocol.swift in Sources */,
 				0EE278C32A1D4B6B003E9478 /* API.swift in Sources */,
 				0EE278BF2A1D4B27003E9478 /* ComicDataWrapper.swift in Sources */,
 				0EE278C52A1D4B88003E9478 /* Keys.swift in Sources */,
