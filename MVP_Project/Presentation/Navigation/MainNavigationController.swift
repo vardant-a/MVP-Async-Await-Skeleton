@@ -20,6 +20,7 @@ final class MainNavigationController: UINavigationController {
             rawValue: (
                 topViewController?.preferredStatusBarStyle)?.rawValue ?? .max
         ) ?? .default
+        // TODO добавить разные стили темы
     }
     
     // MARK: - Public override Methods
