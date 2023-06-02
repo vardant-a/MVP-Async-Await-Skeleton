@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E5EB5FB2A2A7C3B00A3D6CC /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EB5FA2A2A7C3B00A3D6CC /* SwitchCell.swift */; };
+		0E5EB5FD2A2A7C4D00A3D6CC /* SwitchCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EB5FC2A2A7C4D00A3D6CC /* SwitchCellBuilder.swift */; };
 		0E7FC2B72A253D5B00408588 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7FC2B62A253D5B00408588 /* MainNavigationController.swift */; };
 		0E7FC2B92A253D9200408588 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7FC2B82A253D9200408588 /* MainTabBarController.swift */; };
 		0E7FC2BC2A253DD300408588 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7FC2BB2A253DD300408588 /* SettingsViewController.swift */; };
@@ -31,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E5EB5FA2A2A7C3B00A3D6CC /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
+		0E5EB5FC2A2A7C4D00A3D6CC /* SwitchCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCellBuilder.swift; sourceTree = "<group>"; };
 		0E7FC2B62A253D5B00408588 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		0E7FC2B82A253D9200408588 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		0E7FC2BB2A253DD300408588 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 				0E7FC2BD2A253DE300408588 /* SettingsPresenter.swift */,
 				0E7FC2BF2A253E2100408588 /* SettingsCellProtocol.swift */,
 				0E7FC2C12A253E3000408588 /* CustomCell.swift */,
+				0E5EB5FA2A2A7C3B00A3D6CC /* SwitchCell.swift */,
+				0E5EB5FC2A2A7C4D00A3D6CC /* SwitchCellBuilder.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -296,6 +302,7 @@
 			files = (
 				0EE278BB2A1D4ADE003E9478 /* ComicCell.swift in Sources */,
 				0EDFF5E42A1407A400CC9537 /* MainViewController.swift in Sources */,
+				0E5EB5FD2A2A7C4D00A3D6CC /* SwitchCellBuilder.swift in Sources */,
 				0E7FC2B92A253D9200408588 /* MainTabBarController.swift in Sources */,
 				0E7FC2BE2A253DE300408588 /* SettingsPresenter.swift in Sources */,
 				0EE278CD2A1D4D98003E9478 /* UIVIew+EX.swift in Sources */,
@@ -303,6 +310,7 @@
 				0E7FC2B72A253D5B00408588 /* MainNavigationController.swift in Sources */,
 				0EE278CF2A1D51CB003E9478 /* ComicsDataSource.swift in Sources */,
 				0E7FC2C22A253E3000408588 /* CustomCell.swift in Sources */,
+				0E5EB5FB2A2A7C3B00A3D6CC /* SwitchCell.swift in Sources */,
 				0E7FC2BC2A253DD300408588 /* SettingsViewController.swift in Sources */,
 				0EE278C72A1D4BAC003E9478 /* NetworkManager.swift in Sources */,
 				0EDFF5E22A1407A400CC9537 /* SceneDelegate.swift in Sources */,
