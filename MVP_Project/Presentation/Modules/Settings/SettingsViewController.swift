@@ -19,7 +19,7 @@ final class SettingsViewController: UIViewController {
         didSet {
             settings.forEach { section in
                 for cell in section.cells {
-                    cell.cellType.register(for: settingsTableView)
+                    cell.register(for: settingsTableView)
                 }
             }
         }
@@ -104,7 +104,7 @@ extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = settings[indexPath.section].cells[indexPath.row]
 
-        return cell.cellType.dequeue(for: tableView, at: indexPath)
+        return cell.dequeue(for: tableView, at: indexPath)
     }
 }
 
@@ -112,7 +112,7 @@ extension SettingsViewController: UITableViewDataSource {
 
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return settings[indexPath.section].cells[indexPath.row].cellType.height
+        return settings[indexPath.section].cells[indexPath.row].height
     }
 }
 

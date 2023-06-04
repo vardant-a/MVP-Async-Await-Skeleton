@@ -1,5 +1,5 @@
 //
-//  SettingsCellProtocol.swift
+//  SettingsCell.swift
 //  MVP_Project
 //
 //  Created by Aleksei on 29.05.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SettingCellProtocol: AnyObject {
+protocol SettingsCell: AnyObject {
     var cellID: String { get }
     var height: CGFloat { get }
     
@@ -25,24 +25,13 @@ struct SettingsSection {
             SettingsSection(
                 header: "First Section",
                 footer: nil,
-                cells: [
-                    SettingsCell(title: "Системный режим",
-                                 cellType: CustomCell())]),
+                cells: []),
             SettingsSection(
                 header: "Second Header",
                 footer: "Second Footer",
-                cells: [
-                    SettingsCell(title: "Ячейка второй секции",
-                                     cellType: CustomCell())
-                ])
+                cells: [])
         ]
         
         return settings
     }
-}
-
-struct SettingsCell {
-    let title: String?
-//    let action: Selector
-    let cellType: SettingCellProtocol
 }
