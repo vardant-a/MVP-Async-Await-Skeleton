@@ -31,3 +31,4 @@ AddSkeletonLayer, the method creates an animated layer applied to an element, is
 
 The async/await method is implemented to obtain data using the [MARVEL API](https://developer.marvel.com), the request consists of the main part, as well as the hash part (the encrypted part of the request using time, public key, private key), the MD5. NetworkMonitor encryption method to monitor the user's network status, at the time of the request to the server, in the absence of access to the network, the user will receive a notification.
 
+### Settings ViewController
